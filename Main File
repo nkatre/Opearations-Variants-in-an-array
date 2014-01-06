@@ -1,0 +1,173 @@
+/* All the first four methods(actually first three) can be implemented using Linear Search but the Time Complexity 
+with Linear Search would have been O(n). The interviewer doesn't want this, hence we have implemented
+the first four methods using minor modifications to binary search. These are IMP problems and usually asked
+in the interviews. Please understand all of them */
+
+
+package InterviewQuestions;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.security.acl.LastOwnerException;
+
+public class CircularSortedArray {
+	
+	// method to find how many times an element occurs in the sorted array. That is sorted array with duplicates
+	// this is the same as binary search method with only little bit of modification
+	//VERY IMP AND USUALLY ASKED IN INTERVIEWS
+	public int findDuplicateElementCount(int A[], int n, int x, boolean searchFirst){
+		int low=0, high=n-1, result=-1;
+		
+		
+		while(low<=high){			
+		
+		int mid=(low+high)/2;
+		/* normal code would be this
+		if(A[mid]==x)  // return the index at x is found
+			return mid;
+		*/
+		
+		// this is the modified part
+		
+		if(A[mid]==x)
+		{
+			result=mid;
+			if(searchFirst)
+			     high=mid-1; // find the first occurance of x in the lower half
+			
+			else
+			     low=mid+1; // find the last occurance of x in the upper half
+		}
+		else if(x<A[mid])
+			high=mid-1;
+		
+		else low=mid+1;
+		
+		}
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	// method to search the element in the circular sorted array
+	public int circularArrayElementSearch(int A[], int n, int x)
+	{
+		
+		int low=0, high=n-1;
+		
+		while(low<=high){
+			
+			int mid=(low+high)/2;
+			
+			if(x==A[mid]) // Case1: Found x, Yeah :)
+				return mid;
+			
+			if(A[mid]<A[high]) // Case2: If the right half is sorted
+			{
+				if(x>A[mid] && x<=A[high])
+					low=mid+1;     // go searching in the right sorted half
+				else 
+					high=mid-1;    // go searching left
+			}
+			
+			
+			else     //Case3: If the left half is sorted
+			{
+				if(x<A[mid] && x>=A[low])
+					high=mid-1; // go searching in the left sorted half
+				else
+					low=mid+1;  // go searching right				
+			}			
+		}
+		
+		return -1;
+	}
+	
+	// method to print the number of rotations in a circular sorted array
+	
+	public int findRotationCount(int A[], int n){
+		
+		int low=0, high=n-1;
+		
+		while(low<=high){
+		    
+			if(A[low]<=A[high])  //Case1: This is the case where the array is not rotated at all.
+				return low;
+			
+// The pivot is the minimum element in the array from where the array should ideally begin since the 
+// array is sorted. The pivot has the property that the element to the left and right of the pivot are greater
+// than the pivot element. Also the sub-arrays to the left and right of the pivot are sorted.
+			int mid=(low+high)/2;
+			
+			int next = (mid+1)%n, prev=(mid+n-1)%n; // modulus since the array is circular
+			
+			if(A[mid]<=A[next] && A[mid]<=A[prev])  //Case2: pivot found. Hence return its index
+				return mid;
+			
+			else if(A[mid]<=A[high])    //Case3: search for the pivot in the left half
+				high=mid-1;
+			else if(A[mid]>=A[low])  //Case4: search for the pivot n the right half
+				low=mid+1;		
+			
+		}
+		return -1;
+	}
+	
+	
+	
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		 int A[]={12,14,18,21,3,5,8,9};
+		 
+		 int x;
+		 System.out.print("Enter a number: ");
+		 x=Integer.parseInt(in.readLine());
+		 
+		 
+		 // search a particular element in the circular sorted array
+		 int index=(new CircularSortedArray().circularArrayElementSearch(A, A.length, x));
+		 
+		 if(index==-1)
+			 System.out.println(x+ " not found in the array");
+		 else
+			 System.out.println(x+" found in the array at index "+index);
+		 
+		 
+		 
+		 // find the number of rotations in the circular sorted array
+		 
+		 int count=(new CircularSortedArray().findRotationCount(A, A.length));
+		 System.out.println("The array is rotated "+count+" times");
+		 
+		 // find the number of occurances in the sorted array. PLEASE NOTE THIS ARRAY IS "NOT CIRCULAR"
+		 int B[]={1,1,1,1,2,2,2,2,3,3,3,5,5,5,6,6,6,6,6};	
+		 System.out.println("Enter the element for which the count is to be found");
+		 int targetElemet=Integer.parseInt(in.readLine());
+		 int firstOccurance=(new CircularSortedArray().findDuplicateElementCount(B, B.length, targetElemet, true));
+		 
+		 if(firstOccurance==-1)
+			 System.out.println("Element does not exist");
+		 else{
+			 int lastOccurance=(new CircularSortedArray().findDuplicateElementCount(B, B.length, targetElemet, false));
+			 System.out.println("Number of occurance are: "+ (lastOccurance-firstOccurance+1));
+		 }
+		 
+		 // finding the first or the last occurance in a sorted array. PLEASE NOTE THIS ARRAY IS "NOT CIRCULAR"
+		 
+		 int theFirstOccurance=(new CircularSortedArray().findDuplicateElementCount(B, B.length, targetElemet, true));
+		 System.out.println("The first occurance is at index: "+theFirstOccurance);
+		 int theLastOccurance= (new CircularSortedArray().findDuplicateElementCount(B, B.length, targetElemet, false));
+		 System.out.println("The last occurance is at index: "+theLastOccurance);
+		 
+	}
+
+}
