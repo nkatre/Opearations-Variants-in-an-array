@@ -1,7 +1,8 @@
 /* All the first four methods(actually first three) can be implemented using Linear Search but the Time Complexity 
 with Linear Search would have been O(n). The interviewer doesn't want this, hence we have implemented
 the first four methods using minor modifications to binary search. Since Binary Search variants is used
-to solve these problems, hence the time complexity is O(log n).
+to solve these problems, hence the time complexity is O(log n) and the Space Complexity is O(1).
+This is the best Time and Space Complexity we can give to the interviewer.
 These are IMP problems and usually asked in the interviews. Please understand all of them */
 
 
