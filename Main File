@@ -1,7 +1,8 @@
 /* All the first four methods(actually first three) can be implemented using Linear Search but the Time Complexity 
 with Linear Search would have been O(n). The interviewer doesn't want this, hence we have implemented
-the first four methods using minor modifications to binary search. These are IMP problems and usually asked
-in the interviews. Please understand all of them */
+the first four methods using minor modifications to binary search. Since Binary Search variants is used
+to solve these problems, hence the time complexity is O(log n).
+These are IMP problems and usually asked in the interviews. Please understand all of them */
 
 
 package InterviewQuestions;
@@ -94,7 +95,10 @@ public class CircularSortedArray {
 	
 	public int findRotationCount(int A[], int n){
 		
-		int low=0, high=n-1;
+		int low=0, high=n-1;nkatre
+1  Unwatch
+Star 0 Fork 0PUBLIC nkatre / Opearations-Variants-in-an-array
+
 		
 		while(low<=high){
 		    
