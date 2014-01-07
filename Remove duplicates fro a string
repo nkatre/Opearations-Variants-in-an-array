@@ -1,0 +1,39 @@
+Source: http://www.careercup.com/question?id=5700464825860096
+
+
+package InterviewQuestions;
+
+public class RemovingDuplicates {
+	
+	public static void main(String[] args) {
+		
+		char[] givenArray={'a','s','c','f','g','v','r','d','s','c','a','x'};
+		System.out.println(removeDuplicates(givenArray));
+		
+	}
+
+	private static String removeDuplicates(char[] givenArray) {
+		// TODO Auto-generated method stub
+		
+		// Assume that the string is ASCII
+		
+		boolean[] asciiTable = new boolean[128]; //ASCII is 7 bits or you can take 8 bits as well
+	
+		int i=0;
+		
+		for(int j=0;j<givenArray.length;j++){
+			
+			
+			if(!asciiTable[givenArray[j]]){
+				
+				asciiTable[givenArray[j]]=true;
+				givenArray[i]=givenArray[j];
+				i++;
+			}
+		}
+		return new String(givenArray,0, i);
+	}
+	
+	
+
+}
