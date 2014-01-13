@@ -1,0 +1,37 @@
+
+/*You are given an array A with elements 0 to n-1, numbers can be repeated in the array. Create n sets where 
+
+S[i]={a[i],a[a[i]],a[a[a[i]]]…}. Set has all elements unique.
+
+Find the size of the largest set. */
+
+
+
+public static void createSetOfUniqueElements(int[] array){
+		
+		
+		int arrayLngth=array.length;
+		int i=0;
+		Set<Integer> sets=new LinkedHashSet<Integer>();
+		int count=0;
+		int maxcount=0;
+		for(int j=0;j<arrayLngth;j++)
+		{
+			i=j;
+			while(!sets.contains(array[i]))
+			{
+				i=array[i];
+				sets.add(i);
+				count++;
+				
+			}
+			
+			if(count>maxcount)
+			maxcount=count;
+			
+			System.out.println(sets.toString());
+			sets.clear();
+			count=0;
+		}
+            System.out.println("The size of the largest set is: "+maxcount);
+	}
