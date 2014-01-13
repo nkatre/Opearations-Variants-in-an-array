@@ -1,0 +1,60 @@
+/* Time Complexity is O(n^3) */
+
+public static void main(String[] args) throws Exception{
+		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		int m=0,n=0,p=0,q=0;
+		System.out.println("Enter the rows and columns of the first matrix");
+		m=Integer.parseInt(in.readLine());
+		n=Integer.parseInt(in.readLine());
+		System.out.println("Enter the rows and columns of the second matrix");
+		p=Integer.parseInt(in.readLine());
+		q=Integer.parseInt(in.readLine());
+		
+		if(n!=p)
+			System.out.println("The matrix cannot be multiplied");
+		else{
+			int sum=0;
+			int[][] first=new int[m][n];
+			int[][] second=new int[p][q];
+			int[][] result = new int[m][q];
+			System.out.println("Enter the elements of the first matrix");
+			for(int i=0;i<m;i++)
+			{
+				for(int j=0;j<n;j++)
+				{
+					first[i][j]=Integer.parseInt(in.readLine());
+				}
+			}
+			System.out.println("Enter the elements of the second matrix");
+			for(int i=0;i<p;i++)
+			{
+				for(int j=0;j<q;j++)
+				{
+					second[i][j]=Integer.parseInt(in.readLine());
+				}
+			}
+			//logic for the multiplication
+			for(int i=0;i<m;i++)
+			{
+				for(int j=0;j<q;j++)
+				{
+					result[i][j]=0;
+					for(int k=0;k<p;k++)
+					{
+					result[i][j]+=first[i][k]*second[k][j];
+					}
+					
+				}
+			}
+			//output the result
+			System.out.println("The reult of the multiplication is: ");
+			for(int i=0;i<m;i++)
+			{
+				for(int j=0;j<q;j++)
+				{
+					System.out.print(result[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
+	}
