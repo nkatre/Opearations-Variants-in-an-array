@@ -24,3 +24,7 @@
            }      
            return s1.substring(u - a[u][v], u);
    }
+
+
+/* We can do this in linear time by constrcting Suffix trees using Ukkonens principle. But the algorithm is
+too big and beyond the scope of interviews */
