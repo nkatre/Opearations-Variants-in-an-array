@@ -1,0 +1,24 @@
+public static void encrypt(String string){
+char[] charArray=string.toCharArray();
+StringBuffer sb=new StringBuffer(""); 
+int count=0; 
+char str=string.charAt(0); 
+for(int i=0;i<string.length();i++) 
+{ 
+if(str==string.charAt(i)) 
+{ 
+count++; 
+} 
+else 
+{ 
+sb=sb.append(str);
+sb.append(count); 
+count=1; 
+str=string.charAt(i); 
+} 
+} 
+sb=sb.append(str); 
+sb.append(count);
+System.out.println(sb); 
+
+} 
