@@ -1,0 +1,74 @@
+/*
+The 2 sum problem is a classic variation of the subset sum problem. It is defined as the following: 
+You have an unsorted array, and you are given a value S. Find all pairs of elements in the array that
+add up to value S. 
+2 solutions - one minimizes space complexity, and the other time. As stated in the "hint", one approach
+is to hash the entire array, and then for each element check if S-array[j] is in the hash table.
+This takes O(n) time and O(n) space to store the array. 
+Alternatively, if one wishes to minimize space complexity, simply sort the array.
+Then, have two pointers - one initialized to array[0] and the other array[length-1]. 
+Then check the sums; if the sum is > S, decrement the right pointer. If it is < S, increment the 
+left pointer.
+*/
+
+
+
+
+
+
+// Approach 1: Using HashMap. Time Complexity= O(n). Space Complexity= O(n)
+
+private static void findTwoSum(int[] unsortedarray, int x) {
+		// TODO Auto-generated method stub
+		
+		HashMap<Integer, Integer> myhash = new HashMap<Integer, Integer>();
+		for(int i=0;i<unsortedarray.length;i++)
+		  myhash.put(unsortedarray[i], unsortedarray[i]);
+		boolean found=false;
+		int start=0;
+		int end=unsortedarray.length-1;
+		int find=0;
+		while(!found && start<=end )
+		{
+			find= x-unsortedarray[start];
+			found=myhash.containsValue(find);
+		    if(found){
+		    	break;
+		    	
+		    }
+		    	start++;
+		}
+		if(found)
+			System.out.println("The elements are "+unsortedarray[start]+" and "+find);
+		else
+			System.out.println("The elements are not found");
+		
+		}
+		
+// Approach 2: Using Sorting. Time Complexity= O(nlogn). Space Complexity= O(1)
+
+public static void twoSum(int[] a, int sum){
+		
+		Arrays.sort(a);
+	    int start=0;
+	    int end=a.length-1;
+	    boolean found=false;
+	    while(start<=end){
+	    	if(a[start]+a[end]==sum)
+	    		{
+	    		found=true;
+	    		break;
+	    		}
+	    	else if(a[start]+a[end]>sum)
+	    		end--;
+	    	else   // this condition is for a[start]+a[end]<sum
+	    		start++;
+	    }
+	    if(found)
+	    	System.out.println("The elements making the sum are: "+a[start]+" and "+a[end]);
+	    else
+	    	System.out.println("Not found");
+	
+	}
+
+		
