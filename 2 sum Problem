@@ -45,6 +45,20 @@ private static void findTwoSum(int[] unsortedarray, int x) {
 		
 		}
 		
+// One more solution for unsorted using the same approach of HashMap
+
+ public static void printIndexesForSumK(int[]arr,int k)
+ {
+  HashSet<Integer> hashSet=new HashSet<Integer>();
+  for(int num:arr)
+  {
+   if(hashSet.contains(k-num))
+    System.out.println(num+","+(k-num));
+   hashSet.add(num);
+  }
+ }
+ 
+		
 // Approach 2: Using Sorting. Time Complexity= O(nlogn). Space Complexity= O(1)
 
 public static void twoSum(int[] a, int sum){
