@@ -37,7 +37,7 @@ public static int equilibrium(int arr[], int n)
       leftsum += arr[i];
    }
 
-    /* If no equilibrium index found, then return 0 */
+    /* If no equilibrium index found, then return -1 */
     return -1;
 }
 
