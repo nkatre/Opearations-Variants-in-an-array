@@ -1,6 +1,8 @@
 Source-> http://www.careercup.com/question?id=5700464825860096
 
 
+// Please note that every character has an associated integer value in the ascii table.
+
 package InterviewQuestions;
 
 public class RemovingDuplicates {
