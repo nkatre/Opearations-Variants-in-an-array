@@ -1,29 +1,42 @@
 /* Time Complexity of this algorithm is O(n*m). Space Complexity is O(n*m) 
 
 
+public class Subsequence {
+public static void main(String[] args) {
+	String s1="Heybaby";
+	String s2="HelloWorld";
+	
+	char[] c1=s1.toCharArray();
+	char[] c2=s2.toCharArray();
+	
+	int m=c1.length;
+	int n=c2.length;
+	
+	System.out.println(lcs(c1,c2,m,n));
+}
 
- public static String longestCommonSubstring(final String s1, final String s2) {
-           final int[][] a = new int[s1.length() + 1][s2.length() + 1];
-           int u = 0, v = 0;
-
-           for (int i = 0; i < s1.length(); i++)
-           {
-                   for (int j = 0; j < s2.length(); j++)
-                   {
-                           if (s1.charAt(i) == s2.charAt(j))
-                           {
-                                   a[i + 1][j + 1] = a[i][j] + 1;
-                                   
-                                   if (a[i + 1][j + 1] > a[u][v]) 
-                                   {
-                                           u = i + 1;
-                                           v = j + 1;
-                                   }
-                           }
-                   }
-           }      
-           return s1.substring(u - a[u][v], u);
-   }
+public static int lcs(char[] c1, char[] c2, int m, int n) {
+	// TODO Auto-generated method stub
+	int[][] table=new int[m+1][n+1];
+	int i=0,j=0;
+	
+	for(i=0;i<=m;i++){
+		for(j=0;j<=n;j++){
+			if(i==0||j==0)
+				table[i][j]=0;
+			else if(c1[i-1]==c2[j-1]){
+				table[i][j]=table[i-1][j-1]+1;
+			    
+			}
+			else
+				table[i][j]=Math.max(table[i-1][j], table[i][j-1]);
+		}
+	}
+	
+	return table[c1.length][c2.length];
+	
+}
+}
 
 
 /* We can do this in linear time by constrcting Suffix trees using Ukkonens principle. But the algorithm is
