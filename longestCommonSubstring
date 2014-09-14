@@ -1,7 +1,6 @@
 /* Time Complexity of this algorithm is O(n*m). Space Complexity is O(n*m) 
 
 
-package array;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
