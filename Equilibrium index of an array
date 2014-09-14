@@ -13,7 +13,8 @@ Thanks to Sambasiva for suggesting this solution and providing code for this.
     c) leftsum = leftsum + arr[i] // update leftsum for next iteration.
 4) return -1 // If we come out of loop without returning then
              // there is no equilibrium index
-5) We can two variants of the program - First where the index position is included in the left and right sum AND
+
+NOTE: We can two variants of the program - First where the index position is included in the left and right sum AND
 the Second where the index position is not included in the left and the right sum
 
 
