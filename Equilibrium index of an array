@@ -17,34 +17,74 @@ Thanks to Sambasiva for suggesting this solution and providing code for this.
 
 /* Time Complexity: O(n) */
 
-public static int equilibrium(int arr[], int n)
-{
-   int sum = 0;      // initialize sum of whole array
-   int leftsum = 0; // initialize leftsum
-   int i;
 
-   /* Find sum of the whole array */
-   for (i = 0; i < n; ++i)
-        sum += arr[i];
+mport java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-   for( i = 0; i < n; ++i)
-   {
-      sum -= arr[i]; // sum is now right sum for index i
-
-      if(leftsum == sum)
-        return i;
-
-      leftsum += arr[i];
-   }
-
-    /* If no equilibrium index found, then return -1 */
-    return -1;
+public class EquilibriumIndex {
+public static void main(String[] args) throws Exception {
+	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("How many elements in the array");
+	int n = Integer.parseInt(in.readLine());
+	System.out.println("Enter the array elements");
+	int[] array=new int[n];
+	for(int i=0;i<n;i++)
+		array[i]=Integer.parseInt(in.readLine());
+	
+	// Including Index Position
+	System.out.println("The equilibrium index including Index Position");
+	int equilibriumIndexA = findEquilibriumIndexIncludingIndexElement(array);
+	if(equilibriumIndexA==-1)
+		System.out.println("The array does not have a equilibrium index position");
+	else
+	System.out.println("The equilibrium index of the array is :"+(equilibriumIndexA+1));
+	
+	// Without Index Position
+	System.out.println("The equilibrium index without including index position");
+	int equilibriumIndexB = findEquilibriumIndexWithoutIncludingIndexElement(array);
+	if(equilibriumIndexB==-1)
+		System.out.println("The array does not have a equilibrium index position");
+	else
+	System.out.println("The equilibrium index of the array is :"+(equilibriumIndexB+1));
 }
 
-public static void main(String args[])
-{
-  int arr[] = {-7, 1, 5, 2, -4, 3, 0};
-  int arr_size = arr.length;
-  System.out.println("First equilibrium index is: " + equilibrium(arr, arr_size));
+//Including Index Position
+public static int findEquilibriumIndexIncludingIndexElement(int[] array) {
+	int leftSum=0;
+	int rightSum=0;
+	int equilibriumIndex=-1;
+	for(int i=0;i<array.length;i++)
+		rightSum+=array[i];
+	
+	for(int i=0;i<array.length;i++){
+		leftSum+=array[i]; // This statement is placed below to achieve the below method
+		rightSum-=array[i];
+		if(leftSum==rightSum){
+			equilibriumIndex=i;
+		    break;
+		}
+		
+	}
+	return equilibriumIndex;
+}
 
+//Without Index Position
+public static int findEquilibriumIndexWithoutIncludingIndexElement(int[] array) {
+	int leftSum=0;
+	int rightSum=0;
+	int equilibriumIndex=-1;
+	for(int i=0;i<array.length;i++)
+		rightSum+=array[i];
+	
+	for(int i=0;i<array.length;i++){
+		
+		rightSum-=array[i];
+		if(leftSum==rightSum){
+			equilibriumIndex=i;
+		    break;
+		} 
+	    leftSum+=array[i];  // This statement is placed above to achieve the above method
+	}
+	return equilibriumIndex;
+}
 }
