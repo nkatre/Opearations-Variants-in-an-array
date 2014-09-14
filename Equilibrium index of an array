@@ -16,7 +16,10 @@ Thanks to Sambasiva for suggesting this solution and providing code for this.
 
 NOTE: We can two variants of the program - First where the index position is included in the left and right sum AND
 the Second where the index position is not included in the left and the right sum
-
+/*
+ Sample Input: 1) 4 8 5 1 4 9 5 - Applicable for with index
+               2) 4 8 5 1 0 4 9 5 - Applicable for without index
+*/
 
 /* Time Complexity: O(n) */
 
