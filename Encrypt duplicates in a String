@@ -1,24 +1,19 @@
-public static void encrypt(String string){
-char[] charArray=string.toCharArray();
-StringBuffer sb=new StringBuffer(""); 
-int count=0; 
-char str=string.charAt(0); 
-for(int i=0;i<string.length();i++) 
-{ 
-if(str==string.charAt(i)) 
-{ 
-count++; 
-} 
-else 
-{ 
-sb=sb.append(str);
-sb.append(count); 
-count=1; 
-str=string.charAt(i); 
-} 
-} 
-sb=sb.append(str); 
-sb.append(count);
-System.out.println(sb); 
-
-} 
+public static String encrypt(char[] charArray) {
+	char previousCharacter=charArray[0]; // Take out the previous character for matching with next character
+	int count=1;
+	StringBuilder sb = new StringBuilder();
+	for(int i=1;i<charArray.length;i++){
+		if(previousCharacter==charArray[i])
+			count++;
+		else{
+			sb.append(previousCharacter);    // Appending the previousCharacter
+			sb.append(count); // Appending the previousCharacter count
+			count=1;
+			previousCharacter=charArray[i]; // Previous Character becomes the current character
+		}
+		
+	}		
+	sb.append(previousCharacter); // Appending the last remaining character
+	sb.append(count); // Appending the last remaining character count
+	return sb.toString();
+	}
