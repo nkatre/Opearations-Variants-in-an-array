@@ -15,7 +15,7 @@ public static void print2D(int[][] A, int rows, int columns){
 		
 		while(top<=bottom && left<=right){
 			
-			// go left and print all the elements till the right is reached
+			// start from left and print all the elements till the right is reached
 			if(direction==0){
 				for(int i=left; i<=right;i++)
 					System.out.print(A[top][i]+" ");
