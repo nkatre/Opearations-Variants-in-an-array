@@ -57,3 +57,8 @@ if(largest != index){         // This means our assumption is wrong & largest is
     }                       // it is largest in the entire array (not just largest for only three elements-left,right,index)
 }
 
+/*
+Time Complexity of Heapify funtion is O(Lg(n)), where n is the total elements in the array.
+Time Compexity of BuildHeap is O(nLg(n)), since BuildHeap calls Heapify function on n/2 elements of the array. Hence in totality
+the time complexity is O(nLg(n)).
+*/
