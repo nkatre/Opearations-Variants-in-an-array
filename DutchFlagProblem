@@ -75,3 +75,7 @@ public static void printArrayElements(int[] array){
 	Space Complexity - O(1)
 */
 
+ANOTHER SOLUTION:
+Another possible solution is COUNTING SORT.
+In this method, we count the number of elements in the array and then output the elements, the number of times, that the 
+element is present in the array.
