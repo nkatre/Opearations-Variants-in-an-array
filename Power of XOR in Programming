@@ -19,3 +19,8 @@ http://www.geeksforgeeks.org/find-the-missing-number/
 
 4. Compute absolute value of integer
 http://www.geeksforgeeks.org/compute-the-integer-absolute-value-abs-without-branching/
+BEFORE YOU GO AHEAD WITH THE ABOVE PROBLEM, PLEASE UNDERSTAND THE FOLLOWING:
+a. How are positive numbers represented in computer ?
+b. How are negative numbers represented in computer ? (Ans. 2's complement)
+c. Why are negative numbers represented as 2's complment in computer ?
+Ans. VERY NICELY EXPLAINED HERE: http://stackoverflow.com/questions/1125304/why-is-twos-complement-used-to-represent-negative-numbers
