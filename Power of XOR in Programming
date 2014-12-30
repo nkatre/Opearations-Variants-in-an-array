@@ -16,9 +16,10 @@ http://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/
 2. Detect if two numbers have different signs
 http://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/
 
-3. Find a SINGLE MISSING NUMBER in a sorted array of size n where the array elements are from 1 to n.
-(PLEASE note, only applicable for SINGLE missing number in a SORTED array of size n WHERE elements are from 1 to n)
+3. Find a SINGLE MISSING NUMBER in an array where array elements are SEQUENTIAL STARTING FROM 1 to n
+(PLEASE note, only applicable for SINGLE missing number in an array where array elements are SEQUENTIAL STARTING FROM 1 to n)
 http://www.geeksforgeeks.org/find-the-missing-number/
+My Implementation: https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find%20Single%20Missing%20Number
 
 4. Compute absolute value of integer
 http://www.geeksforgeeks.org/compute-the-integer-absolute-value-abs-without-branching/
