@@ -1,0 +1,4 @@
+If the array is sorted or unsorted, it doesn't matter.
+The only thing required is that the array should be EQUALLY SPACED.
+If the array is EQUALLY SPACED, then the missing number can be found using XOR Operation
+
