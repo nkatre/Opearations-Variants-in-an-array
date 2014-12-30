@@ -2,6 +2,8 @@ Power of XOR in Programming: http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/B
 
 PLEASE READ THE CONTENT IN THE ABOVE LINK BEFORE SOLVING THE BELOW MENTIONED QUESTIONS:
 
+ALWAYS REMEMBER NUMBERS ARE STORED IN REGISTERS IN PROGRAMMING
+
 XOR Properties: (Source: http://en.wikipedia.org/wiki/Exclusive_or)
 I. Commutative: YES (i.e.  a XOR b XOR c = b XOR a XOR c = c XOR a XOR b and all possible combinations are true for
 any number of operands)
