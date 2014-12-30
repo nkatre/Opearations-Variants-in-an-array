@@ -3,7 +3,8 @@ Power of XOR in Programming: http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/B
 PLEASE READ THE CONTENT IN THE ABOVE LINK BEFORE SOLVING THE BELOW MENTIONED QUESTIONS:
 
 XOR Properties: (Source: http://en.wikipedia.org/wiki/Exclusive_or)
-I. Commutative: YES (i.e.  a XOR b XOR c = b XOR a XOR c = c XOR a XOR b and all possible combinations are true for any number of operands)
+I. Commutative: YES (i.e.  a XOR b XOR c = b XOR a XOR c = c XOR a XOR b and all possible combinations are true for
+any number of operands)
 PRACTICAL APPLICATION: Because of this property, we could solve the "find missing number" problem mentioned below in point(3).
 II. Associative: YES (i.e. a XOR (b XOR c) = (a XOR b) XOR c
 
@@ -27,4 +28,6 @@ https://www.youtube.com/watch?v=HhtecBhM_oA
 c. How are negative numbers represented in computer ? (Ans. 2's complement)
 Ans. https://www.rit.edu/~w-asc/documents/services/resources/handouts/DM3%20Two's%20Complement.pdf
 d. Why are negative numbers represented as 2's complment in computer ?
-Ans. VERY NICELY EXPLAINED HERE: http://stackoverflow.com/questions/1125304/why-is-twos-complement-used-to-represent-negative-numbers
+Ans. VERY NICELY EXPLAINED HERE: 
+http://stackoverflow.com/questions/1125304/why-is-twos-complement-used-to-represent-negative-numbers
+
