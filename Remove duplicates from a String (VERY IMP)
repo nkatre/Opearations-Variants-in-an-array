@@ -1,41 +1,76 @@
-Source-> http://www.careercup.com/question?id=5700464825860096
+Question: Remove duplicate characters from input String
+
+Here, two solutions are given, (one using boolean asciiTable, another using HashSet), both take
+O(n) time complexity and O(n) Space Complexity
 
 
-// Please note that every character has an associated integer value in the ascii table.
+I. ******************************Using HashSet***************************************
 
-package InterviewQuestions;
+package removeDuplicateCharactersFromString;
 
-public class RemovingDuplicates {
-	
-	public static void main(String[] args) {
-		
-		char[] givenArray={'a','s','c','f','g','v','r','d','s','c','a','x'};
-		System.out.println(removeDuplicates(givenArray));
-		
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class UsingHashSet {
+public static void main(String[] args) {
+	Scanner in = new Scanner(System.in);
+	try{
+		System.out.println("Enter the string");
+		String s = in.nextLine();
+		System.out.println(removeDupCharacters(s));
 	}
-
-	private static String removeDuplicates(char[] givenArray) {
-		// TODO Auto-generated method stub
-		
-		// Assume that the string is ASCII
-		
-		boolean[] asciiTable = new boolean[128]; //ASCII is 7 bits or you can take 8 bits as well
-	
-		int i=0;
-		
-		for(int j=0;j<givenArray.length;j++){
-			
-			
-			if(!asciiTable[givenArray[j]]){
-				
-				asciiTable[givenArray[j]]=true;
-				givenArray[i]=givenArray[j];
-				i++;
-			}
-		}
-		return new String(givenArray,0, i);
+	finally{
+		in.close();
 	}
-	
-	
-
 }
+
+private static String removeDupCharacters(String s) {
+	HashSet<Character> set = new HashSet<Character>();
+	StringBuilder sb = new StringBuilder();
+	for(char c: s.toCharArray()){
+		if(!set.contains(c)){
+			set.add(c);
+			sb.append(c);
+		}
+	}
+	return sb.toString();
+}
+}
+/*Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O(n), used for HashSet*/
+	
+
+II. ************************************************Using boolean ascii table *********************************
+package removeDuplicateCharactersFromString;
+
+import java.util.Scanner;
+
+public class UsingBooleanArray {
+public static void main(String[] args) {
+	Scanner in = new Scanner(System.in);
+	try{
+	System.out.println("Enter the string");
+	String s = in.nextLine();
+	System.out.println(removeDuplicates(s));
+	}
+	finally{
+		in.close();
+	}
+}
+public static String removeDuplicates(String s){
+	boolean[] asciiTable = new boolean[256];
+	StringBuilder sb = new StringBuilder();
+	for(char c: s.toCharArray()){
+		if(!asciiTable[c]){
+			asciiTable[c]=true;
+			sb.append(c);
+		}
+	}
+	return sb.toString();
+}
+}
+/*
+Analysis:
+	Time Complexity: O(n)
+	Space Complexity: O(n)*/
