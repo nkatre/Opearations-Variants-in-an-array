@@ -12,7 +12,8 @@ NOTE: This method is applicable for not just 1 NON-repeating number but for n No
 3. Using Sorting: Time Complexity = O(nlgn), Space Complexity = O(1)
 NOTE: This method is applicable for not just 1 NON-repeating number but for n Non-repeating numbers.
 
-All implementations are similar as we implemented for 2n+2 where n numbers are repeated exactly twice and 2 numbers are non-repeating,
+All implementations are similar as we implemented for 2n+2 where n numbers are repeated exactly twice and 2 numbers are 
+non-repeating.
 Implementation Link: https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find2NonRepeatingNumbers
 
 I have implemented for 1 Non-repeating number using XOR, you can implement for the remaining methods:
@@ -32,7 +33,8 @@ public static void main(String[] args) {
 		System.out.println("The size of the array should be 2n+1");
 		System.out.println("Enter the number of elements in the array");
 		int n = in.nextInt();
-		System.out.println("Enter the elements of the array, one should be non-repeating and the others should be repeting EXACTLY even number of times");
+		System.out.println("Enter the elements of the array, one should be non-repeating and "+
+		"the others should be repeting EXACTLY even number of times");
 		int[] a = new int[n];
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
@@ -55,14 +57,15 @@ Analysis:
 	Time Complexity = O(n)
 	Space Complexity = O(1)
 	TODO: Device a solution using HashMap
-		: Device a solution using sorting
-		: Solve the problem for String, using XOR, where exactly one character is non repeating and others are repeated even number of times
-		: Device solution for above String problem using HashMap
-		: Device solution for above String problem using asciiTable
+	    : Device a solution using sorting
+	    : Solve the problem for String, using XOR, where exactly one character is non repeating and others are 
+	      repeated even number of times
+	    : Device solution for above String problem using HashMap
+	    : Device solution for above String problem using asciiTable
 		
-		All the above solutions are similar to:
-		1. For Numbers = https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find2NonRepeatingNumbers
-		2. For Characters = https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find2NonRepeatingCharacters
+	All the above solutions are similar to:
+	1. For Numbers = https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find2NonRepeatingNumbers
+	2. For Characters = https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find2NonRepeatingCharacters
 */
 
 
@@ -80,7 +83,8 @@ NOTE: This method is applicable for not just 1 NON-repeating character but for n
 3. Using ASCII TABLE: 	Time Complexity = O(n), Space Complexity = O(n) actually it is O(256) which is constant 
 NOTE: This method is applicable for not just 1 NON-repeating character but for n Non-repeating characters.
 
-All implementations are similar as we implemented for 2n+2 where n characters are repeated exactly twice and 2 chracters are non-repeating,
+All implementations are similar as we implemented for 2n+2 where n characters are repeated exactly twice and 2 chracters
+are non-repeating.
 Implementation Link: https://github.com/nkatre/Opearations-Variants-in-an-array/blob/master/Find2NonRepeatingCharacters
 
 I have implemented for 1 Non-repeating chracter using XOR, you can implement for the remaining methods:
@@ -113,7 +117,8 @@ public class UsingXOR {
 		for(int i=1;i<s.length();i++)
 			xorAll^=s.charAt(i);
 		char c = (char)xorAll;// int(higher datatype) to char(lower datatype) needs
-		// explicit mention of "type casting" since int to char can cause overflow, since int being a bigger datatype than char
+		// explicit mention of "type casting" since int to char can cause overflow, since int being a 
+		//bigger datatype than char
 		return c;
 	}
 }
