@@ -19,6 +19,7 @@ I have implemented for 1 Non-repeating number using XOR, you can implement for t
 
 *************************************************** Using XOR ****************************************************
 package find1NonRepeatingNumber;
+
 /*
  * NOTE: This method is applicable ONLY for 1 NON-repeating number and NOT for n Non-repeating numbers.
 */
@@ -35,7 +36,7 @@ public static void main(String[] args) {
 		int[] a = new int[n];
 		for(int i=0;i<n;i++)
 			a[i]=in.nextInt();
-		System.out.println(findSingleNonRepeatingNumber(a));
+		System.out.println("The non-repeating number is: "+findSingleNonRepeatingNumber(a));
 	}
 	finally{
 		in.close();
@@ -99,7 +100,7 @@ public class UsingXOR {
 		try{
 			System.out.println("Enter the string to be processing for non-repeatig characters");
 			String s = in.nextLine();
-			System.out.println(nonRepeatingCharacters(s));
+			System.out.println("The non-repeating character is: "+nonRepeatingCharacters(s));
 		}
 		finally{
 			in.close();
