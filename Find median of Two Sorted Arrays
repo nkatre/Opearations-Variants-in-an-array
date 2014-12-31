@@ -1,9 +1,9 @@
 Defination of Median:
- Ans. The median is the numerical value separating the higher half of a data sample, a population, 
- or a probability distribution, from the lower half. The median of a finite list of numbers can be found by arranging 
- all the observations from lowest value to highest value and picking the middle one (e.g., the median of {3, 3, 5, 9, 11} is 5).
- If there is an even number of observations, then there is no single middle value; the median is then usually defined to be
- the mean of the two middle values [1] [2] (the median of {3, 5, 7, 9} is (5 + 7) / 2 = 6)
+Wikipedia Definaton: The median is the numerical value separating the higher half of a data sample, a population, 
+or a probability distribution, from the lower half. The median of a finite list of numbers can be found by arranging 
+all the observations from lowest value to highest value and picking the middle one (e.g., the median of {3, 3, 5, 9, 11} is 5).
+If there is an even number of observations, then there is no single middle value; the median is then usually defined to be
+the mean of the two middle values [1] [2] (the median of {3, 5, 7, 9} is (5 + 7) / 2 = 6)
 
 VERY IMPORTANT NOTE: Median can ONLY be found if the given collection is SORTED.
 If the given collection is NOT SORTED, then we have to SORT IT, to find the MEDIAN
