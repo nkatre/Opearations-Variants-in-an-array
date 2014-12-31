@@ -1,0 +1,164 @@
+Question: We are given a string of length 2n+2 where n characters are repeated exactly twice and 2 characters are 
+non-repeating. Find the non-repeating chracters.
+
+Solution:
+1. Using XOR :	Time Complexity = O(n), Space Complexity = O(1)
+NOTE: This method is applicable ONLY for 2 NON-repeating characters and NOT for n Non-repeating characters.
+2. Using HashMap : Time Complexity = O(n), Space Complexity = O(n)
+NOTE: This method is applicable for not just 2 NON-repeating characters but for n Non-repeating characters.
+3. Using ASCII TABLE: 	Time Complexity = O(n), Space Complexity = O(n) actually it is O(256) which is constant 
+NOTE: This method is applicable for not just 2 NON-repeating characters but for n Non-repeating characters.
+
+****************************************** Using XOR ***************************************************
+package find2NonRepeatingCharacters;
+
+/*
+ * NOTE: This method is applicable ONLY for 2 NON-repeating characters and NOT for n Non-repeating characters.
+*/
+
+import java.util.Scanner;
+
+public class UsingXOR {
+public static void main(String[] args) {
+	Scanner in= new Scanner(System.in);
+	try{
+		System.out.println("Enter the string to be processing for non-repeatig characters");
+		String s = in.nextLine();
+		nonRepeatingCharacters(s);
+	}
+	finally{
+		in.close();
+	}
+}
+
+private static void nonRepeatingCharacters(String s) {
+	int xorAll = s.charAt(0);    // char(lower datatype) to int(higher datatype) takes place
+	                             // automatically in JAVA. Since there won't be an overflow from char to int
+	int firstNonRepeatingCharacter = 0;
+	int secondNonRepeatingCharacter = 0;
+	
+	for(int i=1;i<s.length();i++)
+		xorAll^=s.charAt(i);
+	
+	int getRightmostSetBit = xorAll & ~(xorAll-1);
+	
+	for(int i=0;i<s.length();i++){
+	if((getRightmostSetBit & s.charAt(i)) >0)
+		firstNonRepeatingCharacter^=s.charAt(i);
+	else
+		secondNonRepeatingCharacter^=s.charAt(i);
+	}
+	char firstCharacter = (char)firstNonRepeatingCharacter;// int(higher datatype) to char(lower datatype) needs
+	// explicit mention of "type casting" since int to char can cause overflow, since int being a bigger datatype than char
+	char secondCharacter = (char)secondNonRepeatingCharacter;// int(higher datatype) to char(lower datatype) needs
+	// explicit mention of "type casting" since int to char can cause overflow, since int being a bigger datatype than char
+	System.out.println("First non-repeating character is: "+firstCharacter);  
+	System.out.println("Second non-repeating character is: "+secondCharacter);
+}
+}
+/*
+Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O(1) 
+*/
+
+****************************************** Using HashMap ***********************************************
+package find2NonRepeatingCharacters;
+
+/*
+ * NOTE: This method is applicable for not just 2 NON-repeating characters but for n Non-repeating characters.
+*/
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class UsingHashMap {
+	public static void main(String[] args) {
+		Scanner in= new Scanner(System.in);
+		try{
+			System.out.println("Enter the string to be processing for non-repeatig characters");
+			String s = in.nextLine();
+			nonRepeatingCharacters(s);
+		}
+		finally{
+			in.close();
+		}
+	}
+
+	private static void nonRepeatingCharacters(String s) {
+		HashMap<Character, Integer> hash = new HashMap<Character,Integer>();
+		for(int i=0;i<s.length();i++){
+			if(!hash.containsKey(s.charAt(i))){
+				hash.put(s.charAt(i), 1);
+			}
+			else{
+				int count = hash.get(s.charAt(i));
+				count++;
+				hash.put(s.charAt(i), count);
+			}
+		}
+		
+		Set<Map.Entry<Character,Integer>> set = hash.entrySet();
+		Iterator<Map.Entry<Character,Integer>> iter = set.iterator();
+		while(iter.hasNext()){
+			Map.Entry<Character, Integer> element = iter.next();
+			if(element.getValue()==1){
+				char c = element.getKey();
+				System.out.println("Non-repeating character is: "+c);
+			}
+		}
+	}
+}
+/*
+Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O(n)
+*/
+
+****************************************** Using ASCII Table ***************************************************
+package find2NonRepeatingCharacters;
+
+import java.util.Scanner;
+
+/*
+ * NOTE: This method is applicable for not just 2 NON-repeating characters but for n Non-repeating characters.
+*/
+
+public class UsingAsciiTable {
+	public static void main(String[] args) {
+		Scanner in= new Scanner(System.in);
+		try{
+			System.out.println("Enter the string to be processing for non-repeatig characters");
+			String s = in.nextLine();
+			nonRepeatingCharacters(s);
+		}
+		finally{
+			in.close();
+		}
+	}
+
+	private static void nonRepeatingCharacters(String s) {
+	    int[] asciiTable = new int[256];   // integer array. ASCII Table
+	    for(int i=0;i<s.length();i++){
+	    	asciiTable[s.charAt(i)]++;// in integer array we are storing characters(Ofcourse asii value of characters)
+	    	// char(lower datatype) to int(higher datatype) takes place
+            // automatically in JAVA. Since there won't be an overflow from char to int
+	    }
+	    
+	    // check for the count of each character in the array
+	    for(int i=0;i<s.length();i++){
+	    	if(asciiTable[s.charAt(i)]==1){
+	    		char c = s.charAt(i);
+	    		System.out.println("The non-repeating character is: "+c);
+	    	}
+	    }
+	}
+
+}
+/*
+Analysis:
+	Time Complexity = O(n)
+	Space Complexity = O(n), actually O(256) which is constant 
+*/
